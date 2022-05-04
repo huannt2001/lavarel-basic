@@ -4,6 +4,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Multipic;
@@ -69,6 +70,18 @@ Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 
 // Portfolio routes
 Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
+
+
+// Admin Contacts routes
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/admin/add/contact', [ContactController::class, 'AddContact'])->name('add.contact');
+Route::post('/admin/store/contact', [ContactController::class, 'StoreContact'])->name('store.contact');
+Route::get('/admin/message', [ContactController::class, 'AdminMessage'])->name('admin.message');
+
+
+//Home Contacts routes
+Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 
 
 
