@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -26,7 +27,8 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
     $abouts = DB::table('home_abouts')->first();
-    return view('home', compact('brands', 'abouts'));
+    $images = Multipic::all();
+    return view('home', compact('brands', 'abouts', 'images'));
 });
 
 // Amin Category
@@ -49,6 +51,7 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 Route::get('/multi/image', [BrandController::class, 'Multpic'])->name('multi.image');
 Route::post('/multi/add', [BrandController::class, 'StoreImage'])->name('store.image');
 
+
 // Admin All Route
 Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
 Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
@@ -63,6 +66,10 @@ Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store
 Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout'])->name('edit.about');
 Route::post('/about/edit/{id}', [AboutController::class, 'UpdateAbout']);
 Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
+
+// Portfolio routes
+Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
+
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {

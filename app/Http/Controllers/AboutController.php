@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\HomeAbout;
 use Illuminate\Support\Carbon;
+use App\Models\Multipic;
 
 class AboutController extends Controller
 {
@@ -65,5 +66,10 @@ class AboutController extends Controller
         } else {
             return redirect()->back()->with('error', 'Missing required parameter');
         }
+    }
+
+    public function Portfolio() {
+        $images = Multipic::all();
+        return view('pages.portfolio', compact('images'));
     }
 }

@@ -46,7 +46,7 @@
     <!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
-    @include('layouts.body.slider')
+    {{-- @include('layouts.body.slider') --}}
     <!-- End Hero -->
 
     <main id="main">
