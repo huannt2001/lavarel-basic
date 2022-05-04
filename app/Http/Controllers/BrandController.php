@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Multipic;
-use Carbon\Carbon as CarbonCarbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image;
