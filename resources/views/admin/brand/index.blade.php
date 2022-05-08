@@ -8,20 +8,6 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
-                                @if (session('success'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>{{ session('success') }}</strong>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
-                                @endif
-                                @if (session('error'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>{{ session('error') }}</strong>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
-                                    </div>
-                                @endif
                                 <div class="card-header">All Brand</div>
 
                                 <div class="card-body">
@@ -81,8 +67,7 @@
                             <div class="card">
                                 <div class="card-header">Add Brand</div>
                                 <div class="card-body">
-                                    <form action="{{ route('store.brand') }}" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Brand Name</label>
@@ -111,6 +96,4 @@
 
             </div>
         </div>
-    </div
-
-@endsection
+</div @endsection

@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ChangePass;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Multipic;
@@ -94,3 +95,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 });
 
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
+
+// Change password and user profile
+Route::get('/user/password', [ChangePass::class, 'ChangePass'])->name('change.password');
+Route::post('/password/update', [ChangePass::class, 'UpdatePass'])->name('update.password');
+
+//  User profile
+Route::get('/user/profile', [ChangePass::class, 'ProfileUpdate'])->name('profile.update');
+Route::post('/user/profile/update', [ChangePass::class, 'UserUpdateProfile'])->name('update.user.profile');
